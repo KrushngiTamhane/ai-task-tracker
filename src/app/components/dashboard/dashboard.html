@@ -1,0 +1,84 @@
+  <div class="navbar">
+
+    <div class="logo">
+      Task Creation System
+    </div>
+
+    <div>
+
+      <button routerLink="/create">
+        Create Issue
+      </button>
+
+      <button (click)="logout()">
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <h2>Issue Dashboard</h2>
+
+      <h3>Total Tasks: {{ tasks.length }}</h3>
+
+      <table class="table">
+
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr *ngFor="let task of tasks">
+
+          <td>{{ task.id }}</td>
+
+          <td>{{ task.title }}</td>
+
+          <td>{{ task.description }}</td>
+
+          <td>{{ task.status }}</td>
+
+          <td>
+
+            <button
+              class="edit-btn"
+              [routerLink]="['/edit', task.id]"
+            >
+              Edit
+            </button>
+
+          </td>
+
+          <td>
+
+            <button
+              class="delete-btn"
+              (click)="deleteTask(task.id)"
+            >
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
