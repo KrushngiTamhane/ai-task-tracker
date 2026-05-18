@@ -26,3 +26,6 @@
 
 # Screenshots
 - ![Login](screenshots/Login.png)
+- ![Create_Issue](screenshots/Create_Issue.png)
+- ![Dashboard_AI](screenshots/Dashboard_AI.png)
+- ![AI Description](screenshots/AI_Desc.png)
