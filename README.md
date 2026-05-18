@@ -23,3 +23,6 @@
 - Email notifications
 - Dashboard analytics
 - Task reminders
+
+# Screenshots
+- ![Dashboard][screenshots]
