@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Edit Issue</div>
+
+    <a th:href="@{/dashboard}">
+        <button>Back</button>
+    </a>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <form th:action="@{/update}" th:object="${task}" method="post">
+
+            <input type="hidden" th:field="*{id}">
+
+            <input type="text" th:field="*{title}">
+
+            <textarea th:field="*{description}" rows="6"></textarea>
+
+            <select th:field="*{status}">
+                <option value="OPEN">OPEN</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
+                <option value="DONE">DONE</option>
+            </select>
+
+            <button type="submit">
+                Update Issue
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

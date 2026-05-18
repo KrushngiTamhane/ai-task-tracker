@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Task</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Create Issue</div>
+
+    <a th:href="@{/dashboard}">
+        <button>Back</button>
+    </a>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <form th:action="@{/save}" th:object="${task}" method="post">
+
+            <input type="text" th:field="*{title}" id="title"
+                   placeholder="Issue Title">
+
+            <textarea th:field="*{description}"
+                      id="description"
+                      rows="6"
+                      placeholder="Description"></textarea>
+
+            <select th:field="*{status}">
+                <option value="OPEN">OPEN</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
+                <option value="DONE">DONE</option>
+            </select>
+
+            <button type="button" onclick="generateAI()">
+                AI Suggest Description
+            </button>
+
+            <button type="submit">
+                Save Issue
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    async function generateAI() {
+
+        let title = document.getElementById("title").value;
+
+        let response = await fetch('/ai-suggestion?title=' + title);
+
+        let data = await response.text();
+
+        document.getElementById("description").value = data;
+    }
+
+</script>
+
+</body>
+</html>

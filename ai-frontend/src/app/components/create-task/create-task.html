@@ -1,0 +1,59 @@
+<div class="navbar">
+
+  <div class="logo">
+    Create Issue
+  </div>
+
+  <button routerLink="/dashboard">
+    Back
+  </button>
+
+</div>
+
+<div class="container">
+
+  <div class="card">
+
+    <form (ngSubmit)="createTask()">
+
+      <input
+        type="text"
+        [(ngModel)]="task.title"
+        name="title"
+        id="title"
+        placeholder="Issue Title"
+      >
+
+      <textarea
+        [(ngModel)]="task.description"
+        name="description"
+        id="description"
+        rows="6"
+        placeholder="Description"
+      ></textarea>
+
+      <select
+        [(ngModel)]="task.status"
+        name="status"
+      >
+        <option value="OPEN">OPEN</option>
+        <option value="IN_PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+
+      <button
+        type="button"
+        (click)="generateAI()"
+      >
+        AI Suggest Description
+      </button>
+
+      <button type="submit">
+        Save Issue
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
