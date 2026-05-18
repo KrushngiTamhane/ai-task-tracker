@@ -25,4 +25,4 @@
 - Task reminders
 
 # Screenshots
-- ![Dashboard][screenshots][Login.png]
+- ![Login](screenshots/Login.png)
